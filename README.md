@@ -28,7 +28,7 @@ of silence, using the YNCA network protocol.
 1. In Lyrion, go to **Settings > Plugins > Additional Repositories**.
 2. Add this URL:
    ```
-   https://raw.githubusercontent.com/<owner>/<repo>/main/repo.xml
+   https://raw.githubusercontent.com/loconox/lms-yamaha-ynca/main/repo.xml
    ```
 3. Go back to **Settings > Plugins**, find "Yamaha YNCA Amp Control" and enable it.
 4. Restart the server.
