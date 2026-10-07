@@ -1,0 +1,53 @@
+# String file for YamahaYNCA plugin
+
+PLUGIN_YAMAHAYNCA_NAME
+	EN	Yamaha YNCA Amp Control
+	FR	Contrôle ampli Yamaha YNCA
+
+PLUGIN_YAMAHAYNCA_DESC
+	EN	Automatically powers a Yamaha YNCA-compatible amplifier on when playback starts, and back to standby after a period of silence.
+	FR	Allume automatiquement un amplificateur Yamaha compatible YNCA au démarrage de la lecture, et le remet en veille après une période de silence.
+
+PLUGIN_YAMAHAYNCA_SETTINGS_HOST
+	EN	Amplifier IP address or hostname
+	FR	Adresse IP ou nom d'hôte de l'ampli
+
+PLUGIN_YAMAHAYNCA_SETTINGS_HOST_DESC
+	EN	The IP address of your Yamaha amplifier on the local network (e.g. 192.168.1.50).
+	FR	L'adresse IP de votre ampli Yamaha sur le réseau local (ex : 192.168.1.50).
+
+PLUGIN_YAMAHAYNCA_SETTINGS_PORT
+	EN	YNCA network port
+	FR	Port réseau YNCA
+
+PLUGIN_YAMAHAYNCA_SETTINGS_PORT_DESC
+	EN	TCP port used by the YNCA protocol. Leave at 50000 unless you changed it on the amplifier.
+	FR	Port TCP utilisé par le protocole YNCA. Laissez 50000 sauf si vous l'avez modifié sur l'ampli.
+
+PLUGIN_YAMAHAYNCA_SETTINGS_OFFDELAY
+	EN	Power off delay (minutes)
+	FR	Délai avant extinction (minutes)
+
+PLUGIN_YAMAHAYNCA_SETTINGS_OFFDELAY_DESC
+	EN	Number of minutes without playback on any player before the amplifier is switched to standby.
+	FR	Nombre de minutes sans lecture sur un lecteur avant la mise en veille de l'ampli.
+
+PLUGIN_YAMAHAYNCA_SETTINGS_STARTUPINPUT
+	EN	Input to select on power on
+	FR	Entrée à sélectionner à l'allumage
+
+PLUGIN_YAMAHAYNCA_SETTINGS_STARTUPINPUT_DESC
+	EN	Input automatically selected on the amplifier right after it powers on. The list is read live from the amplifier when reachable (showing renamed jacks), otherwise a generic list is shown. Leave on "Don't change" to keep the amp's last used input.
+	FR	Entrée sélectionnée automatiquement sur l'ampli juste après son allumage. La liste est lue en direct sur l'ampli si celui-ci est accessible (avec les noms personnalisés des entrées), sinon une liste générique est affichée. Laissez sur « Ne pas changer » pour conserver la dernière entrée utilisée par l'ampli.
+
+PLUGIN_YAMAHAYNCA_SETTINGS_STARTUPINPUT_NONE
+	EN	Don't change
+	FR	Ne pas changer
+
+PLUGIN_YAMAHAYNCA_SETTINGS_INPUTDELAY
+	EN	Delay before input change (seconds)
+	FR	Délai avant changement d'entrée (secondes)
+
+PLUGIN_YAMAHAYNCA_SETTINGS_INPUTDELAY_DESC
+	EN	Time to wait after powering the amplifier on before selecting the input above, to let the amp finish booting.
+	FR	Temps d'attente après l'allumage de l'ampli avant de sélectionner l'entrée ci-dessus, pour laisser le temps à l'ampli de démarrer.

@@ -1,0 +1,32 @@
+[% PROCESS settings/header.html %]
+
+	[% WRAPPER setting title="PLUGIN_YAMAHAYNCA_NAME" desc="" %]
+		<div class="groupDesc">[% "PLUGIN_YAMAHAYNCA_DESC" | string %]</div>
+	[% END %]
+
+	[% WRAPPER setting title="PLUGIN_YAMAHAYNCA_SETTINGS_HOST" desc="PLUGIN_YAMAHAYNCA_SETTINGS_HOST_DESC" %]
+		<input type="text" class="stdedit" name="pref_amphost" id="amphost" value="[% prefs.pref_amphost %]" />
+	[% END %]
+
+	[% WRAPPER setting title="PLUGIN_YAMAHAYNCA_SETTINGS_PORT" desc="PLUGIN_YAMAHAYNCA_SETTINGS_PORT_DESC" %]
+		<input type="text" class="stdedit" size="6" name="pref_ampport" id="ampport" value="[% prefs.pref_ampport %]" />
+	[% END %]
+
+	[% WRAPPER setting title="PLUGIN_YAMAHAYNCA_SETTINGS_OFFDELAY" desc="PLUGIN_YAMAHAYNCA_SETTINGS_OFFDELAY_DESC" %]
+		<input type="text" class="stdedit" size="6" name="pref_offdelay" id="offdelay" value="[% prefs.pref_offdelay %]" />
+	[% END %]
+
+	[% WRAPPER setting title="PLUGIN_YAMAHAYNCA_SETTINGS_STARTUPINPUT" desc="PLUGIN_YAMAHAYNCA_SETTINGS_STARTUPINPUT_DESC" %]
+		<select name="pref_startupinput" id="startupinput" class="stdedit">
+			<option value="" [% IF prefs.pref_startupinput == '' %]selected="selected"[% END %]>[% "PLUGIN_YAMAHAYNCA_SETTINGS_STARTUPINPUT_NONE" | string %]</option>
+			[% FOREACH opt IN inputOptions %]
+				<option value="[% opt.value %]" [% IF prefs.pref_startupinput == opt.value %]selected="selected"[% END %]>[% opt.label %]</option>
+			[% END %]
+		</select>
+	[% END %]
+
+	[% WRAPPER setting title="PLUGIN_YAMAHAYNCA_SETTINGS_INPUTDELAY" desc="PLUGIN_YAMAHAYNCA_SETTINGS_INPUTDELAY_DESC" %]
+		<input type="text" class="stdedit" size="4" name="pref_inputdelay" id="inputdelay" value="[% prefs.pref_inputdelay %]" />
+	[% END %]
+
+[% PROCESS settings/footer.html %]

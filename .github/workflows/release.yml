@@ -1,0 +1,59 @@
+name: Release plugin
+
+# Cut a release by bumping <version> in Plugins/YamahaYNCA/install.xml and
+# pushing a matching tag, e.g.:
+#   git tag v1.1 && git push origin v1.1
+#
+# This builds the plugin zip, publishes it as a GitHub Release asset (always
+# named YamahaYNCA.zip, so the "latest release" download URL stays stable),
+# and updates repo.xml on main with the new version/sha1 so that Lyrion's
+# "Additional Repositories" feed picks up the new release automatically.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build plugin zip
+        run: make build
+
+      - name: Derive version from tag
+        id: ver
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" dist/YamahaYNCA.zip \
+            --repo "${{ github.repository }}" \
+            --title "${{ github.ref_name }}" \
+            --generate-notes
+
+      - name: Update repo.xml
+        run: make repo-xml REPO="${{ github.repository }}" VERSION="${{ steps.ver.outputs.version }}"
+
+      - name: Commit repo.xml to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add repo.xml
+          if ! git diff --cached --quiet; then
+            git commit -m "Update repo.xml for ${{ github.ref_name }}"
+            git push origin HEAD:main
+          else
+            echo "repo.xml unchanged"
+          fi

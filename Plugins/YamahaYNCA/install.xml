@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<extension>
+	<id>D4F1B8A2-6C3E-4B7A-9E1F-2A7C9D0E5F31</id>
+	<name>PLUGIN_YAMAHAYNCA_NAME</name>
+	<module>Plugins::YamahaYNCA::Plugin</module>
+	<version>1.0</version>
+	<description>PLUGIN_YAMAHAYNCA_DESC</description>
+	<creator>Jeremie Libeau</creator>
+	<category>hardware</category>
+
+	<defaultState>enabled</defaultState>
+
+	<optionsURL>plugins/YamahaYNCA/settings/basic.html</optionsURL>
+	<type>2</type><!-- type=extension -->
+
+	<targetApplication>
+		<id>Lyrion Music Server</id>
+		<minVersion>8.0</minVersion>
+		<maxVersion>*</maxVersion>
+	</targetApplication>
+
+</extension>
